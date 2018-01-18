@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, request
 
 from Resume.models import IMG
-from createResume.createWord import createWord
+# from createResume.createWord import createWord
 
 
 def index(request):
@@ -43,7 +43,8 @@ def createWordAndPdf(request):
     if request.method == 'POST':
         datas = request.POST
         print datas
-        back = createWord()
+        # back = createWord()
+        back = "200"
         result = json.dumps({'code': back})
     else:
         result = json.dumps({'code':404})
