@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Resume.apps.ResumeConfig',
-    'createResume.createWord',
-    'createResume.createPdf'
+    'Resume.createWord',
 ]
 
 MIDDLEWARE = [
