@@ -2,10 +2,10 @@
 from __future__ import unicode_literals
 
 import json
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse, request
+from django.http import HttpResponse, StreamingHttpResponse
 
 from models import IMG
 
@@ -38,12 +38,12 @@ def showImg(request):
     return render(request, 'showimg.html', content)
 
 @csrf_exempt
-def createWordAndPdf(request):
+def createWord(request):
     if request.method == 'POST':
         datas = request.POST
-        print datas
         import createWord
-        back = createWord.createWord()
+        back = createWord.createWord(datas)
+        # back = createWord.woreToHtml()
         # back = "200"
         result = json.dumps({'code': back})
     else:

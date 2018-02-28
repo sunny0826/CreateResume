@@ -26,5 +26,5 @@ urlpatterns = [
     url(r'^resume/', views.resume),
     url(r'^upload', views.uploadImg),
     url(r'^show', views.showImg),
-    url(r'^create', views.createWordAndPdf),
+    url(r'^create', views.createWord),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

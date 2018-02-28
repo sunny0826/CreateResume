@@ -188,8 +188,19 @@ layui.use(['form', 'layedit', 'laydate','upload'], function(){
             dataType: 'json',
             success: function (data) {
                 layer.close(index);
-                layer.alert(JSON.stringify(data), {
-                  title: '最终的提交信息'
+                // layer.alert(JSON.stringify(data.code), {
+                layer.open({
+                    title: '下载',
+                    content: '是否下载',
+                    btn: ['是', '否'],
+                    success: function(layero) {
+                        var origin = window.location.origin;
+                        var btn = layero.find('.layui-layer-btn');
+                        btn.find('.layui-layer-btn0').attr({
+                            href: origin+'/media/word/result.docx'
+                            // , target: '_blank'
+                        });
+                    }
                 });
             },
             error: function (xhr, type) {
