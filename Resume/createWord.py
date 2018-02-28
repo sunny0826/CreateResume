@@ -18,7 +18,7 @@ def createWord():
                         text = i.text.replace(old_text, new_text)
                         i.text = text
     #打开模板文件
-    document = Document('media/word/resume.docx')
+    document = Document('resTemplate/demo.docx')
     #替换内容
     replace_text('0000','张三'.decode('utf8'))   #如果替换的字符为中文，则需要进行解码
     #保存
