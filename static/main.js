@@ -101,7 +101,7 @@ layui.use(['form', 'layedit', 'laydate','upload'], function(){
   //pro重置经历
      $('#resetPro.layui-btn').on('click', function(){
          $('#protimeline>li').remove();
-         proinfo.pop = [];
+         proinfo = [];
      });
 
   //普通图片上传

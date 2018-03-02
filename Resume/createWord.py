@@ -29,9 +29,9 @@ def createWord(data):
 
     # 打开模板文件
     document = Document('resTemplate/word_template.docx')
-    # 最后添加附录
+    # # 最后添加附录
     # paragraph = document.add_paragraph('照片：'.decode('utf8'))
-    # paragraph.insert_paragraph_before('附录：'.decode('utf8'), style='ListBullet')
+    # paragraph.insert_paragraph_before('附录：'.decode('utf8'))
     # # 添加图片
     # document.add_picture('media/img/dog.jpg', width=Inches(1.25), height=Inches(1.25))
     # 替换内容
@@ -87,28 +87,7 @@ def createWord(data):
     else:
         rank = ''
     tables[6].cell(0, 1).text = rank
-    # replace_text('name',info.get('name'))
-    # replace_text('sex',info.get('sex'))
-    # replace_text('site',site)
-    # replace_text('birthday',info.get('birthday'))
-    # replace_text('phone',info.get('phone'))
-    # replace_text('email',info.get('email'))
-    # replace_text('wechat',info.get('wechat'))
-    # replace_text('jobpost',info.get('jobpost'))
-    # replace_text('post',info.get('post'))
-    # replace_text('duration',info.get('duration'))
-    # replace_text('start',info.get('price_min'))
-    # replace_text('end',info.get('price_max'))
-    # replace_text('school',info.get('school'))
-    # replace_text('major',info.get('major'))
-    # replace_text('edu',info.get('edu'))
-    # if info.get('cet6')=='on':
-    #     rank = 'CTE6'
-    # elif info.get('cet4')=='on':
-    #     rank = 'CET4'
-    # else:
-    #     rank = ''
-    # replace_text('rank', rank)
+
     # 保存
     document.save('media/word/result.docx')
     return 200
