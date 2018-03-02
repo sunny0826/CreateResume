@@ -176,18 +176,18 @@ layui.use(['form', 'layedit', 'laydate','upload'], function(){
           layer.msg('工作经历不可为空!',{icon: 5, anim: 6}, function(){});
       }else if (data.field.proinfo==""){
           layer.msg('项目经验不可为空!',{icon: 5, anim: 6}, function(){});
-      }else if (data.field.imagePath==""){
-          // layer.msg('需要上传照片！');
-          layer.msg('需要上传照片!',{icon: 5, anim: 6}, function(){});
+      // }else if (data.field.imagePath==""){
+      //     // layer.msg('需要上传照片！');
+      //     layer.msg('需要上传照片!',{icon: 5, anim: 6}, function(){});
       }else {
-          var index = layer.load();
+          // var index = layer.load();
           $.ajax({
             type: 'POST',
             url: '/create',
-            data: data.field,
+            data: JSON.stringify(data.field),
             dataType: 'json',
             success: function (data) {
-                layer.close(index);
+                // layer.close(index);
                 // layer.alert(JSON.stringify(data.code), {
                 layer.open({
                     title: '下载',

@@ -1,20 +1,22 @@
 #!/usr/bin/env python
-#encoding: utf-8
-#Author: guoxudong
-from docx import Document
-from docx.shared import Inches
-from docx2html import convert
-import json
+# encoding: utf-8
+# Author: guoxudong
 import HTMLParser
+import json
 import sys
+
+from docx import Document
+from docx.shared import Inches, Pt
+from docx2html import convert
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
-#不改变样式替换模板中的内容
-# from createResume.createPdf import createPdf
 
+
+# 不改变样式替换模板中的内容
 def createWord(data):
-    #数据转化为json格式
-    info = json.loads(json.dumps(data))
+    # 数据转化为json格式
+    info = json.loads(data)
     print info
     def replace_text(old_text, new_text):
         for p in document.paragraphs:
@@ -24,18 +26,93 @@ def createWord(data):
                     if old_text in i.text:
                         text = i.text.replace(old_text, new_text)
                         i.text = text
-    #打开模板文件
-    document = Document('resTemplate/demo.docx')
-    #最后添加附录
-    paragraph = document.add_paragraph('照片：'.decode('utf8'))
-    paragraph.insert_paragraph_before('附录：'.decode('utf8'), style='ListBullet')
-    #添加图片
-    document.add_picture('media/img/dog.jpg', width=Inches(1.25), height=Inches(1.25))
-    #替换内容
-    replace_text('0000','张三'.decode('utf8'))   #如果替换的字符为中文，则需要进行解码
-    #保存
+
+    # 打开模板文件
+    document = Document('resTemplate/word_template.docx')
+    # 最后添加附录
+    # paragraph = document.add_paragraph('照片：'.decode('utf8'))
+    # paragraph.insert_paragraph_before('附录：'.decode('utf8'), style='ListBullet')
+    # # 添加图片
+    # document.add_picture('media/img/dog.jpg', width=Inches(1.25), height=Inches(1.25))
+    # 替换内容
+    # replace_text('name', '姓名'.decode('utf8'))  # 如果替换的字符为中文，则需要进行解码
+    #操作表格
+    tables = document.tables
+    #基本信息
+    tables[0].cell(0, 1).text = info.get('name')
+    tables[0].cell(0, 3).text = info.get('sex')
+    site = info.get('province')+','+info.get('city')+','+info.get('district')
+    tables[0].cell(1, 1).text = site
+    tables[0].cell(1, 3).text = info.get('birthday')
+    tables[0].cell(2, 1).text = info.get('phone')
+    tables[0].cell(2, 3).text = info.get('email')
+    tables[0].cell(3, 1).text = info.get('wechat')
+    tables[0].cell(3, 3).text = info.get('jobpost')
+    #经历
+    tables[2].cell(0, 1).text = info.get('post')
+    tables[2].cell(1, 1).text = info.get('duration')+'年'
+    price = info.get('price_min')+'-'+info.get('price_max')
+    tables[2].cell(1, 3).text = price
+    jobinfos = info.get('jobinfo')
+    for i in jobinfos:
+        time = i.get('time')
+        jobname = i.get('jobname')
+        jobtype = i.get('jobtype')
+        jobcontent = i.get('jobcontent')
+        tables[2].cell(2, 1).add_paragraph().add_run('时间段：'+time).font.bold = True
+        tables[2].cell(2, 1).add_paragraph().add_run('职业类型：'+jobtype).font.size = Pt(10)
+        tables[2].cell(2, 1).add_paragraph().add_run('职业名称：'+jobname).font.size = Pt(10)
+        tables[2].cell(2, 1).add_paragraph().add_run('工作内容：'+jobcontent).font.size = Pt(10)
+        tables[2].cell(2, 1).add_paragraph('')
+    proinfo = info.get('proinfo')
+    for i in proinfo:
+        time = i.get('time')
+        jobname = i.get('jobname')
+        jobtype = i.get('jobtype')
+        jobcontent = i.get('jobcontent')
+        tables[2].cell(3, 1).add_paragraph().add_run('时间段：'+time).font.bold = True
+        tables[2].cell(3, 1).add_paragraph().add_run('项目角色：'+jobtype).font.size = Pt(10)
+        tables[2].cell(3, 1).add_paragraph().add_run('项目名称：'+jobname).font.size = Pt(10)
+        tables[2].cell(3, 1).add_paragraph().add_run('项目描述：'+jobcontent).font.size = Pt(10)
+        tables[2].cell(3, 1).add_paragraph('')
+    #背景
+    tables[4].cell(0, 1).text = info.get('school')
+    tables[4].cell(1, 1).text = info.get('major')
+    tables[4].cell(1, 3).text = info.get('edu')
+    #外语
+    if info.get('cet6')=='on':
+        rank = 'CTE6'
+    elif info.get('cet4')=='on':
+        rank = 'CET4'
+    else:
+        rank = ''
+    tables[6].cell(0, 1).text = rank
+    # replace_text('name',info.get('name'))
+    # replace_text('sex',info.get('sex'))
+    # replace_text('site',site)
+    # replace_text('birthday',info.get('birthday'))
+    # replace_text('phone',info.get('phone'))
+    # replace_text('email',info.get('email'))
+    # replace_text('wechat',info.get('wechat'))
+    # replace_text('jobpost',info.get('jobpost'))
+    # replace_text('post',info.get('post'))
+    # replace_text('duration',info.get('duration'))
+    # replace_text('start',info.get('price_min'))
+    # replace_text('end',info.get('price_max'))
+    # replace_text('school',info.get('school'))
+    # replace_text('major',info.get('major'))
+    # replace_text('edu',info.get('edu'))
+    # if info.get('cet6')=='on':
+    #     rank = 'CTE6'
+    # elif info.get('cet4')=='on':
+    #     rank = 'CET4'
+    # else:
+    #     rank = ''
+    # replace_text('rank', rank)
+    # 保存
     document.save('media/word/result.docx')
     return 200
+
 
 def wordToHtml():
     html_parser = HTMLParser.HTMLParser()
@@ -45,4 +122,4 @@ def wordToHtml():
     return html
 
 # if __name__ == '__main__':
-#     createWord()
+#     createWord('1')

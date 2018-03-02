@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>layout 后台大布局 - Layui</title>
+  <title>简历生成器</title>
   <link rel="stylesheet" href="{% static 'css/layui.css' %}" media="all">
   <link rel="stylesheet" href="{% static 'css/Transformers.css' %}" media="all">
   <script src="{% static '/layui.js' %}" charset="utf-8"></script>
@@ -12,26 +12,25 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
   <div class="layui-header">
-    <div class="layui-logo">layui 后台布局</div>
+    <div class="layui-logo">简历生成器</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="">控制台</a></li>
-      <li class="layui-nav-item"><a href="">商品管理</a></li>
-      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item"><a href="">生成器</a></li>
+      <li class="layui-nav-item"><a href="">模板选择</a></li>
       <li class="layui-nav-item">
-        <a href="javascript:;">其它系统</a>
+        <a href="javascript:;">友情链接</a>
         <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
+          <dd><a href="">友链一</a></dd>
+          <dd><a href="">友链二</a></dd>
+          <dd><a href="">友链三</a></dd>
         </dl>
       </li>
     </ul>
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
         <a href="javascript:;">
-          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-          贤心
+          <img src="{% static 'images/head.jpg' %}" class="layui-nav-img">
+          sunny
         </a>
         <dl class="layui-nav-child">
           <dd><a href="">基本资料</a></dd>
@@ -46,24 +45,24 @@
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test">
         <li class="layui-nav-item layui-nav-itemed">
-          <a class="" href="javascript:;">所有商品</a>
+          <a class="" href="javascript:;">模板</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">列表一</a></dd>
-            <dd><a href="javascript:;">列表二</a></dd>
-            <dd><a href="javascript:;">列表三</a></dd>
-            <dd><a href="">超链接</a></dd>
+            <dd><a href="javascript:;">模板一</a></dd>
+            <dd><a href="javascript:;">模板二</a></dd>
+            <dd><a href="javascript:;">模板三</a></dd>
+            <dd><a href="">模板四</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;">解决方案</a>
+          <a href="javascript:;">占位一</a>
           <dl class="layui-nav-child">
             <dd><a href="javascript:;">列表一</a></dd>
             <dd><a href="javascript:;">列表二</a></dd>
             <dd><a href="">超链接</a></dd>
           </dl>
         </li>
-        <li class="layui-nav-item"><a href="">云市场</a></li>
-        <li class="layui-nav-item"><a href="">发布商品</a></li>
+        <li class="layui-nav-item"><a href="">占位二</a></li>
+        <li class="layui-nav-item"><a href="">占位三</a></li>
       </ul>
     </div>
   </div>
@@ -79,7 +78,7 @@
 
   <div class="layui-footer">
     <!-- 底部固定区域 -->
-    © layui.com - 底部固定区域
+    @Github地址：<a href="https://github.com/sunny0826/CreateResume">https://github.com/sunny0826/CreateResume</a>
   </div>
 </div>
 <script>

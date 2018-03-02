@@ -14,7 +14,7 @@
             <div class="layui-inline">
               <label class="layui-form-label">姓名</label>
               <div class="layui-input-inline">
-                <input type="tel" placeholder="请输入姓名" lay-verify="required" class="layui-input">
+                <input type="tel" name="name" placeholder="请输入姓名" lay-verify="required" class="layui-input">
               </div>
             </div>
 <!--性别-->
@@ -110,6 +110,42 @@
           </div>
         </div>
       </div>
+<!--职位-->
+      <div class="layui-form-item">
+        <div class="layui-inline">
+          <label class="layui-form-label">工作年限</label>
+            <div class="layui-input-inline">
+            <input type="text" name="duration" class="layui-input" placeholder="请输入工作年限">
+          </div>
+        </div>
+<!--工作职位-->
+        <div class="layui-inline">
+          <label class="layui-form-label">工作职位</label>
+          <div class="layui-input-inline">
+            <input type="text" name="jobpost" class="layui-input" placeholder="请输入工作职位">
+          </div>
+        </div>
+      </div>
+<!--范围-->
+      <div class="layui-form-item">
+        <div class="layui-inline">
+          <label class="layui-form-label">范围</label>
+          <div class="layui-input-inline" style="width: 100px;">
+            <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="layui-input">
+          </div>
+          <div class="layui-form-mid">-</div>
+          <div class="layui-input-inline" style="width: 100px;">
+            <input type="text" name="price_max" placeholder="￥" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+<!--应聘职位-->
+        <div class="layui-inline">
+          <label class="layui-form-label">应聘职位</label>
+          <div class="layui-input-inline">
+            <input type="text" name="post" class="layui-input" placeholder="请输入应聘职位">
+          </div>
+        </div>
+      </div>
 <!--英语水平-->
       <div class="layui-form-item">
         <label class="layui-form-label">英语水平</label>
@@ -118,6 +154,7 @@
           <input type="checkbox" name="cet6" title="CET-6">
         </div>
       </div>
+
     </div>
 <!--上传图片-->
     <div class="layui-col-md4">
