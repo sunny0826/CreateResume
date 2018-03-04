@@ -7,7 +7,6 @@ import sys
 
 from docx import Document
 from docx.shared import Inches, Pt
-from docx2html import convert
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -93,12 +92,12 @@ def createWord(data):
     return 200
 
 
-def wordToHtml():
-    html_parser = HTMLParser.HTMLParser()
-    html = convert('resTemplate/demo.docx')  # 使用docx2html模块将docx文件转成html串，随后你想干嘛都行
-    html = html_parser.unescape(html)
-    print html
-    return html
+# def wordToHtml():
+#     html_parser = HTMLParser.HTMLParser()
+#     html = convert('resTemplate/demo.docx')  # 使用docx2html模块将docx文件转成html串，随后你想干嘛都行
+#     html = html_parser.unescape(html)
+#     print html
+#     return html
 
 # if __name__ == '__main__':
 #     createWord('1')
