@@ -19,9 +19,11 @@ from django.contrib import admin
 from Resume import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$',  RedirectView.as_view(url="/index/")),
     url(r'^index/', views.index),
     url(r'^resume/', views.resume),
     url(r'^upload', views.uploadImg),
