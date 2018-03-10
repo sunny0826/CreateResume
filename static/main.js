@@ -180,14 +180,14 @@ layui.use(['form', 'layedit', 'laydate','upload'], function(){
       //     // layer.msg('需要上传照片！');
       //     layer.msg('需要上传照片!',{icon: 5, anim: 6}, function(){});
       }else {
-          // var index = layer.load();
+          var index = layer.load();
           $.ajax({
             type: 'POST',
             url: '/create',
             data: JSON.stringify(data.field),
             dataType: 'json',
             success: function (data) {
-                // layer.close(index);
+                layer.close(index);
                 // layer.alert(JSON.stringify(data.code), {
                 layer.open({
                     title: '下载',
@@ -204,6 +204,7 @@ layui.use(['form', 'layedit', 'laydate','upload'], function(){
                 });
             },
             error: function (xhr, type) {
+                layer.close(index);
                 layer.msg('发送请求错误！')
                 console.log('错误')
             }
