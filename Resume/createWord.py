@@ -67,10 +67,10 @@ def createWord(data):
         jobname = i.get('jobname')
         jobtype = i.get('jobtype')
         jobcontent = i.get('jobcontent')
-        table_info_3.cell(5, 1).add_paragraph().add_run('时间段：' + time).font.bold = True
-        table_info_3.cell(5, 1).add_paragraph().add_run('职业类型：' + jobtype).font.size = Pt(10)
-        table_info_3.cell(5, 1).add_paragraph().add_run('职业名称：' + jobname).font.size = Pt(10)
-        table_info_3.cell(5, 1).add_paragraph().add_run('工作内容：' + jobcontent).font.size = Pt(10)
+        table_info_3.cell(5, 1).add_paragraph().add_run(time).font.bold = True
+        table_info_3.cell(5, 1).add_paragraph().add_run(u'职业类型：' + jobtype).font.size = Pt(10)
+        table_info_3.cell(5, 1).add_paragraph().add_run(u'公司名称：' + jobname).font.size = Pt(10)
+        table_info_3.cell(5, 1).add_paragraph().add_run(u'工作内容：' + jobcontent).font.size = Pt(10)
         table_info_3.cell(5, 1).add_paragraph('')
     proinfo = info.get('proinfo')
     for i in proinfo:
@@ -78,10 +78,10 @@ def createWord(data):
         jobname = i.get('jobname')
         jobtype = i.get('jobtype')
         jobcontent = i.get('jobcontent')
-        table_info_3.cell(6, 1).add_paragraph().add_run('时间段：' + time).font.bold = True
-        table_info_3.cell(6, 1).add_paragraph().add_run('项目角色：' + jobtype).font.size = Pt(10)
-        table_info_3.cell(6, 1).add_paragraph().add_run('项目名称：' + jobname).font.size = Pt(10)
-        table_info_3.cell(6, 1).add_paragraph().add_run('项目描述：' + jobcontent).font.size = Pt(10)
+        table_info_3.cell(6, 1).add_paragraph().add_run(time).font.bold = True
+        table_info_3.cell(6, 1).add_paragraph().add_run(u'项目角色：' + jobtype).font.size = Pt(10)
+        table_info_3.cell(6, 1).add_paragraph().add_run(u'项目名称：' + jobname).font.size = Pt(10)
+        table_info_3.cell(6, 1).add_paragraph().add_run(u'项目描述：' + jobcontent).font.size = Pt(10)
         table_info_3.cell(6, 1).add_paragraph('')
     # 背景
     table_info_3.cell(8, 1).text = info.get('school')

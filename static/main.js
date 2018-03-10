@@ -43,7 +43,7 @@ layui.use(['form', 'layedit', 'laydate','upload'], function(){
             <h3 class="layui-timeline-title">' + time + '</h3>\
             <p>\
               职业类型：' + jobtype + '\
-              <br>职业名称：' + jobname + '\
+              <br>公司名称：' + jobname + '\
               <br>工作内容：' + jobcontent + '\
             </p>\
           </div>\
