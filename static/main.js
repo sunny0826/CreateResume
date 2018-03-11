@@ -104,6 +104,19 @@ layui.use(['form', 'layedit', 'laydate','upload'], function(){
          proinfo = [];
      });
 
+  //模板展示
+     $('#template_1').on('click',function () {
+         layer.open({
+        type: 1,
+        title: false,
+        closeBtn: 0,
+        area: '516px',
+        skin: 'layui-layer-nobg', //没有背景色
+        shadeClose: true,
+        content: $('#template$1')
+      });
+     })
+
   //普通图片上传
   var uploadInst = upload.render({
     elem: '#test1'

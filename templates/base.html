@@ -48,7 +48,7 @@
         <li class="layui-nav-item layui-nav-itemed">
           <a class="" href="javascript:;">模板选择</a>
           <dl class="layui-nav-child">
-            <dd class="layui-this"><a href="javascript:;">模板一</a></dd>
+            <dd class="layui-this" id="template_1"><a href="javascript:;">模板一</a></dd>
             <dd><a href="javascript:;">模板二</a></dd>
             <dd><a href="javascript:;">模板三</a></dd>
             <dd><a href="">模板四</a></dd>
@@ -88,6 +88,7 @@ layui.use('element', function(){
   var element = layui.element;
 
 });
+
 layui.use('layer', function(){
   var layer = layui.layer;
 
@@ -120,4 +121,5 @@ layui.use('layer', function(){
 
 </script>
 </body>
+<div id="template1" class="hide" style="display: none;"><img src="{% static 'images/template1.png' %}" ></div>
 </html>
