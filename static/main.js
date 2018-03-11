@@ -113,7 +113,7 @@ layui.use(['form', 'layedit', 'laydate','upload'], function(){
         area: '516px',
         skin: 'layui-layer-nobg', //没有背景色
         shadeClose: true,
-        content: $('#template$1')
+        content: $('#template1')
       });
      })
 
