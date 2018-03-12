@@ -215,6 +215,7 @@ layui.use(['form', 'layedit', 'laydate','upload'], function(){
                 ,moveType: 1 //拖拽模式，0或者1
                 ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">你知道吗？亲！<br><br>由于目前的技术有限,图片无法插入到指定位置,所以照片只能以附录的形式插入到文档最后,可在下载后自行编辑<br><br>欢迎批评指正<br>邮箱地址：sunny20170826@sina.com<br><br>是否下载？</a></div>'
                 ,success: function(layero) {
+                      var origin = window.location.origin;
                       var btn = layero.find('.layui-layer-btn');
                       btn.find('.layui-layer-btn0').attr({
                           href: origin + '/media/word/result.docx'
